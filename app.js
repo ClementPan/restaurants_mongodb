@@ -87,6 +87,34 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// edit: from index or show to edit
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console.log(error))
+})
+
+// edit: from edit to index
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  const newRest = req.body
+  return Restaurant.findById(id)
+    .then(restaurant => {
+      restaurant.name = newRest.name
+      restaurant.category = newRest.category
+      restaurant.location = newRest.location
+      restaurant.google_map = newRest.google_map
+      restaurant.phone = newRest.phone
+      restaurant.description = newRest.description
+      restaurant.image = newRest.image
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/restaurants/${id}/`))
+    .catch(error => console.log(error))
+})
+
 // starting the server
 app.listen(port, () => {
   console.log(`The restaurants server is working on http://localhost:${port}`)
