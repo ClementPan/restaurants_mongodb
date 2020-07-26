@@ -1,0 +1,23 @@
+{
+  "name": "restaurants_mongodb",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node models/seeds/todoSeeder.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "jquery": "^3.5.1",
+    "mongoose": "^5.9.25",
+    "nodemon": "^2.0.4"
+  },
+  "description": ""
+}
