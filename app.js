@@ -37,10 +37,10 @@ db.once('open', () => {
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
 app.set('view engine', 'hbs')
 
-/////setting static = public
+// setting static = public
 app.use(express.static('public'))
 
-///// set root path: index
+// set root path: index
 app.get('/', (req, res) => {
   Restaurant.find()
     .lean()
@@ -48,13 +48,16 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-///// the show
+// set show
 app.get('/restaurants/:id', (req, res) => {
-  const restaurant = restaurants.results.find(item => item.id === Number(req.params.id))
-  res.render('show', { restaurant: restaurant })
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('show'), { restaurant })
+    .catch(error => console.log(error))
 })
 
-///// search 
+// set search 
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.toLocaleLowerCase()
   const searchRestaurantsName = restaurants.results.filter(item => item.name.toLocaleLowerCase().includes(keyword))
@@ -63,7 +66,28 @@ app.get('/search', (req, res) => {
   res.render('index', { restaurants: searchResults, keyword: req.query.keyword })
 })
 
-///// starting the server
+// set new: from index to new
+app.get('/restaurants/create/new', (req, res) => {
+  return res.render('new')
+})
+
+// set new: from new to index
+app.post('/restaurants', (req, res) => {
+  const newRest = req.body
+  return Restaurant.create({
+    name: newRest.name,
+    category: newRest.category,
+    location: newRest.location,
+    google_map: newRest.google_map,
+    phone: newRest.phone,
+    description: newRest.description,
+    image: newRest.image
+  })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+// starting the server
 app.listen(port, () => {
   console.log(`The restaurants server is working on http://localhost:${port}`)
 })
