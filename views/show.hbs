@@ -41,12 +41,16 @@
       <p class="mb-5">
         {{restaurant.description}}
       </p>
-
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
         style="max-width: 600px;">
-      <a href="/restaurants/{{restaurant._id}}/edit"><button class='btn btn-success mb-5'>Edit</button></a>
-      <a href="/"><button class='btn btn-success mb-5'>Return</button></a>
-
     </div>
+
+  </div>
+  <div class='d-flex justify-content-end'>
+    <a href="/restaurants/{{restaurant._id}}/edit"><button class='btn btn-success mb-5 mr-2'>Edit</button></a>
+    <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
+      <button class='btn btn-danger mb-5 mr-2 delete'>Delete</button>
+    </form>
+    <a href="/"><button class='btn btn-info mb-5 mr-2'>Return</button></a>
   </div>
 </div>

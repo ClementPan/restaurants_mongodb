@@ -72,8 +72,12 @@
       </form>
 
       <hr>
-
-      <a href="/"><button class='btn btn-info mb-5 justify-content-center'>Return</button></a>
+      <div class='d-flex justify-content-end'>
+        <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
+          <button class='btn btn-danger mb-5 mr-2 delete'>Delete</button>
+        </form>
+        <a href="/"><button class='btn btn-info mb-5 justify-content-center'>Return</button></a>
+      </div>
     </div>
   </div>
 </div>
