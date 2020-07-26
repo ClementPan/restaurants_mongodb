@@ -42,7 +42,10 @@ app.use(express.static('public'))
 
 ///// set root path: index
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurants.results })
+  Restaurant.find()
+    .lean()
+    .then(restaurants => { res.render('index', { restaurants: restaurants }) })
+    .catch(error => console.log(error))
 })
 
 ///// the show
