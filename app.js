@@ -60,10 +60,16 @@ app.get('/restaurants/:id', (req, res) => {
 // set search 
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.toLocaleLowerCase()
-  const searchRestaurantsName = restaurants.results.filter(item => item.name.toLocaleLowerCase().includes(keyword))
-  const searchRestaurantsCategory = restaurants.results.filter(item => item.category.includes(keyword))
-  const searchResults = searchRestaurantsName.concat(searchRestaurantsCategory)
-  res.render('index', { restaurants: searchResults, keyword: req.query.keyword })
+  Restaurant.find({
+    $or: [
+      { name: { $regex: keyword, $options: "i" } },
+      { name_en: { $regex: keyword, $options: "i" } },
+      { category: { $regex: keyword, $options: "i" } }
+    ]
+  })
+    .lean()
+    .then(restaurants => { res.render('index', { restaurants: restaurants }) })
+    .catch(error => console.log(error))
 })
 
 // set new: from index to new
@@ -76,12 +82,14 @@ app.post('/restaurants', (req, res) => {
   const newRest = req.body
   return Restaurant.create({
     name: newRest.name,
+    name_en: newRest.name_en,
     category: newRest.category,
     location: newRest.location,
     google_map: newRest.google_map,
     phone: newRest.phone,
     description: newRest.description,
-    image: newRest.image
+    image: newRest.image,
+    rating: newRest.rating
   })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -103,12 +111,14 @@ app.post('/restaurants/:id/edit', (req, res) => {
   return Restaurant.findById(id)
     .then(restaurant => {
       restaurant.name = newRest.name
+      restaurant.name_en = newRest.name_en
       restaurant.category = newRest.category
       restaurant.location = newRest.location
       restaurant.google_map = newRest.google_map
       restaurant.phone = newRest.phone
       restaurant.description = newRest.description
       restaurant.image = newRest.image
+      restaurant.rating = newRest.rating
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}/`))
