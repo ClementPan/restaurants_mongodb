@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>restaurants</title>
+  <title>Restaurant List</title>
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link rel="stylesheet" href="/stylesheets/bootstrap.css.map">
   <link rel="stylesheet" href="/stylesheets/index.css">
@@ -13,9 +13,9 @@
 </head>
 
 <body>
-  <header>
+  <header class="mb-5">
     <!-- navigation -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light justify-content-between">
       <div class="container">
         <a class="navbar-brand" href="/">
           <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
@@ -23,9 +23,16 @@
           Clement's Choice
         </a>
       </div>
+      <div>
+        <h4>
+          <a href="/restaurants/create/new">
+            <button class='btn btn-outline-info mt-2'>Create</button>
+          </a>
+        </h4>
+      </div>
     </nav>
 
-    <div class="banner"></div>
+    {{!-- <div class="banner"></div> --}}
   </header>
 
   <!-- restaurant list -->
