@@ -60,9 +60,9 @@ header {
 }
 
 .restaurant-show-title {
-  position: relative;
-  top: -100px;
-  color: white;
+  /* position: relative; */
+  /* top: -100px; */
+  color: #4592af;
   text-align: center;
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

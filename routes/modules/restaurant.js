@@ -11,12 +11,12 @@ router.get('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// set new: from index to new
+// set new: from index to new (get new page)
 router.get('/create/new', (req, res) => {
   return res.render('new')
 })
 
-// set new: from new to index
+// set new: from new to index (send new data)
 router.post('/', (req, res) => {
   const newRest = req.body
   return Restaurant.create({
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// edit: from index or show to edit
+// edit: from index or show to edit (get edit page)
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -43,8 +43,8 @@ router.get('/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// edit: from edit to index
-router.post('/:id/edit', (req, res) => {
+// edit: from edit to index (send edition)
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const newRest = req.body
   return Restaurant.findById(id)
@@ -65,7 +65,7 @@ router.post('/:id/edit', (req, res) => {
 })
 
 // remove 
-router.post('/:id/delete', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())

@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
 
-      <form action="/restaurants/{{restaurant._id}}/edit" method="POST">
+      <form action="/restaurants/{{restaurant._id}}?_method=PUT" method="POST">
         <p class="mb-1">
           <span class="text-secondary">
             <i class="fas fa-font pr-2"></i>
@@ -68,16 +68,18 @@
           <input type="text" placeholder="餐廳照片網址" name='image' value="{{restaurant.image}}">
         </p>
 
-        <button type="submit" class=' btn btn-success mt-2'>修改</button>
+        <button type="submit" class=' btn btn-success mt-2'>Edit</button>
       </form>
 
       <hr>
       <div class='d-flex justify-content-end'>
-        <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
-          <button class='btn btn-danger mb-5 mr-2 delete'>Delete</button>
+        <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST">
+          <button type="submit" class='btn btn-danger mb-5 mr-2 delete'>Delete</button>
         </form>
         <a href="/"><button class='btn btn-info mb-5 justify-content-center'>Return</button></a>
       </div>
+      <img src="{{restaurant.image}}" alt="{{restaurant.name}}">
+
     </div>
   </div>
 </div>

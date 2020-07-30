@@ -4,17 +4,16 @@ const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
+
 
 // require routes
 const routes = require('./routes')
 
-// to be replaced
-const restaurants = require('./restaurant.json')
-
 // use body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// connect database "restaurants_mongodb: restaurants"
+// connect to database
 require('./config/mongoose')
 
 // require Restaurant (Schema)
@@ -28,9 +27,13 @@ const restaurant = require('./models/restaurant')
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
 app.set('view engine', 'hbs')
 
-// setting static = public
+// use method-override
+app.use(methodOverride('_method'))
+
+// set static = public
 app.use(express.static('public'))
 
+// set routes
 app.use(routes)
 
 // starting the server
