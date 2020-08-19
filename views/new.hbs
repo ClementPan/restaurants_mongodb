@@ -4,76 +4,93 @@
     <div class="col-12 col-md-10 mx-auto">
 
       <form action="/restaurants" method="POST">
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-font pr-2"></i>
-            中文名稱：
-          </span>
-          <input type="text" placeholder="中文名稱" name='name'>
-        </p>
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-font pr-2"></i>
-            英文名稱：
-          </span>
-          <input type="text" placeholder="英文名稱" name=' name_en'>
-        </p>
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-utensils pr-2"></i>
-            餐廳類別：
-          </span>
-          <input type="text" placeholder="類別" name='category'>
-        </p>
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-map-marker-alt pr-2"></i>
-            地址：
-          </span>
-          <input type="text" placeholder="地址" name='location'>
-        </p>
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-location-arrow pr-2 fa-xs"></i>
-            Google Map 連結：
-          </span>
-          <input type="text" placeholder="google map" name='google_map'>
-        </p>
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-mobile-alt pr-2"></i>
-            電話：
-          </span>
-          <input type="text" placeholder="電話" name='phone'>
-        </p>
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-star fa-xs pr-2"></i>
-            評分(0/5)：
-          </span>
-          <input type="text" placeholder="評分" name='rating'>
-        </p>
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="far fa-file-alt pr-2"></i>
-            餐廳簡述：
-          </span>
-          <input type="text" placeholder="餐廳簡述" name='description'>
-        </p>
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-images pr-2"></i>
-            餐廳照片：
-          </span>
-          <input type="text" placeholder="餐廳照片網址" name='image'>
-        </p>
+        <ul class="bg bg-light py-3">
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="fas fa-font pr-2"></i>中文名稱：
+            </p>
+            <input type="text" placeholder="中文名稱" name='name'>
+          </li>
 
-        <button type="submit" class=' btn btn-success mt-2'>Create</button>
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="fas fa-font pr-2"></i>英文名稱：
+            </p>
+            <input type="text" placeholder="英文名稱" name=' name_en'>
+          </li>
+
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="fas fa-utensils pr-2"></i>
+              餐廳類別：
+            </p>
+            <input type="text" placeholder="如：義式料理、台式料理..." name='category'>
+          </li>
+
+
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="fas fa-map-marker-alt pr-2"></i>
+              地址：
+            </p>
+            <input type="text" placeholder="地址" name='location'>
+          </li>
+
+
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="fas fa-location-arrow pr-2 fa-xs"></i>
+              Google Map 連結：
+            </p>
+            <input type="text" placeholder="google map" name='google_map'>
+          </li>
+
+
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="fas fa-mobile-alt pr-2"></i>
+              電話：
+            </p>
+            <input type="text" placeholder="電話" name='phone'>
+          </li>
+
+
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="fas fa-star fa-xs pr-2"></i>
+              評分(0/5)：
+            </p>
+            <input type="text" placeholder="評分" name='rating'>
+          </li>
+
+
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="far fa-file-alt pr-2"></i>
+              餐廳簡述：
+            </p>
+            <input type="text" placeholder="用餐環境、餐點品質..." name='description'>
+          </li>
+
+
+          <li class="d-flex justify-content-center mb-1">
+            <p class="text-secondary">
+              <i class="fas fa-images pr-2"></i>
+              餐廳照片：
+            </p>
+            <input type="text" placeholder="餐廳照片網址" name='image'>
+          </li>
+
+          {{!-- <hr> --}}
+
+          <li class="d-flex justify-content-around mt-2">
+            <button type="submit" class='btn btn-success'>Create</button>
+            <a href="/" class='btn btn-info'>Return</a>
+          </li>
+        </ul>
+
       </form>
 
-      <hr>
-
-      <a href="/"><button class='btn btn-info mb-5 justify-content-center'>Return</button></a>
     </div>
   </div>
 </div>
