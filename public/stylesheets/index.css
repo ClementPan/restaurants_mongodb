@@ -29,6 +29,18 @@ header {
   height: 330px;
 }
 
+.card a {
+  text-decoration: none;
+}
+
+.card:hover {
+  background: #fad3ff ;
+}
+
+.card:hover img {
+  opacity: .5;
+}
+
 .card img{
   height: 180px;
 }

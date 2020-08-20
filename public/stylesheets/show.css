@@ -60,19 +60,19 @@ header {
 }
 
 .restaurant-show-title {
-  /* position: relative; */
-  /* top: -100px; */
-  color: #4592af;
-  text-align: center;
+  /* color: #4592af; */
+  color: #0077b6;
+  /* text-align: center; */
   font-size: 3rem;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  margin-top: 150px; 
+  margin-bottom: -50px;
 }
 
 /* new.hbs */
 li {
   width: 70%;
   height: 100%;
-  /* line-height: 100%; */
 }
 
 li p {
@@ -85,12 +85,23 @@ li input {
   height: 100%;
 }
 
-
-
 ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+/* show.hbs */
+/* .line, .line * {
+  border: 2px solid
+} */
+
+.line p:first-child {
+  width: 20%;
+}
+
+.line p:nth-child(2) {
+  width: 45%;
 }
 
 @media screen and (max-width: 768px) {
