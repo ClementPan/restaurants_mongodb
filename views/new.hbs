@@ -3,14 +3,15 @@
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
       <h5 class='text text-danger'>* 為必填項目</h5>
+
       <form action="/restaurants" method="POST">
         <ul class="bg bg-light py-3">
 
           <li class="d-flex justify-content-center mb-1">
             <p class="text-secondary">
-              <i class="fas fa-font pr-2"></i>中文名稱*：
+              <i class="fab fa-cuttlefish pr-2"></i>中文名稱*：
             </p>
-            <input type="text" placeholder="中文名稱" name='name'>
+            <input class='obligatory' type="text" placeholder="中文名稱" name='name'>
           </li>
 
           <li class="d-flex justify-content-center mb-1">
@@ -23,9 +24,9 @@
           <li class="d-flex justify-content-center mb-1">
             <p class="text-secondary">
               <i class="fas fa-utensils pr-2"></i>
-              餐廳類別：
+              餐廳類別*：
             </p>
-            <input type="text" placeholder="如：義式料理、台式料理..." name='category'>
+            <input class='obligatory' type="text" placeholder="如：義式料理、台式料理..." name='category'>
           </li>
 
 
@@ -34,7 +35,7 @@
               <i class="fas fa-map-marker-alt pr-2"></i>
               地址*：
             </p>
-            <input type="text" placeholder="地址" name='location'>
+            <input class='obligatory' type="text" placeholder="地址" name='location'>
           </li>
 
 
@@ -52,7 +53,7 @@
               <i class="fas fa-mobile-alt pr-2"></i>
               電話*：
             </p>
-            <input type="text" placeholder="電話" name='phone'>
+            <input class='obligatory' type="text" placeholder="電話" name='phone'>
           </li>
 
 
@@ -61,7 +62,7 @@
               <i class="fas fa-star fa-xs pr-2"></i>
               評分* (0/5)：
             </p>
-            <input type="text" placeholder="評分" name='rating'>
+            <input class='obligatory' type="text" placeholder="評分" name='rating'>
           </li>
 
 
@@ -70,7 +71,7 @@
               <i class="far fa-file-alt pr-2"></i>
               餐廳簡述*：
             </p>
-            <input type="text" placeholder="用餐環境、餐點品質..." name='description'>
+            <input class='obligatory' type="text" placeholder="用餐環境、餐點品質..." name='description'>
           </li>
 
 
@@ -85,7 +86,7 @@
           {{!-- <hr> --}}
 
           <li class="d-flex justify-content-around mt-2">
-            <button type="submit" class='btn btn-success'>Create</button>
+            <button type="submit" class='btn btn-success create'>Create</button>
             <a href="/" class='btn btn-info'>Return</a>
           </li>
         </ul>

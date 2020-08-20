@@ -92,10 +92,6 @@ ul {
 }
 
 /* show.hbs */
-/* .line, .line * {
-  border: 2px solid
-} */
-
 .line p:first-child {
   width: 20%;
 }

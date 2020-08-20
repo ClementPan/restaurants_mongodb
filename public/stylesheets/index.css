@@ -41,8 +41,13 @@ header {
   opacity: .5;
 }
 
-.card img{
+/* .card img{ */
+.card-img-top, .card-img{
   height: 180px;
+}
+
+.sub-img {
+  font-size: 5rem
 }
 
 .card-title{
@@ -67,6 +72,10 @@ header {
   text-align: center;
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar div {
+  border: 2px solid yellow
 }
 
 @media screen and (max-width: 992px) {
