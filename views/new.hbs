@@ -1,11 +1,16 @@
-{{!-- <h1 class="mb-1 restaurant-show-title">建立新餐廳資訊</h1> --}}
-<div class="container">
+<div class="container bg-light">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
-      <h5 class='text text-danger'>* 為必填項目</h5>
+
+      <h1 class="restaurant-show-title">
+        建立新餐廳資訊
+        <span class='text text-danger'>
+          * 為必填項目
+        </span>
+      </h1>
 
       <form action="/restaurants" method="POST">
-        <ul class="bg bg-light py-3">
+        <ul class="py-3">
 
           <li class="d-flex justify-content-center mb-1">
             <p class="text-secondary">
@@ -71,7 +76,8 @@
               <i class="far fa-file-alt pr-2"></i>
               餐廳簡述*：
             </p>
-            <input class='obligatory' type="text" placeholder="用餐環境、餐點品質..." name='description'>
+            <textarea type="text" name="description" class='obligatory' cols="30" rows="5"
+              placeholder="用餐環境、餐點品質..."></textarea>
           </li>
 
 
@@ -83,14 +89,12 @@
             <input type="text" placeholder="餐廳照片網址" name='image'>
           </li>
 
-          {{!-- <hr> --}}
 
           <li class="d-flex justify-content-around mt-2">
             <button type="submit" class='btn btn-success create'>Create</button>
-            <a href="/" class='btn btn-info'>Return</a>
+            <a href="/" class='btn btn-info'><i class="fas fa-sign-out-alt"></i></a>
           </li>
         </ul>
-
       </form>
 
     </div>

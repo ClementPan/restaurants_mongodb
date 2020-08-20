@@ -6,10 +6,6 @@ const db = require('../../config/mongoose')
 db.once('open', () => {
   console.log('MongoDB connection success!')
   Restaurant.create(restaurantData.results)
-
-    // restaurantData.results.forEach(restaurant =>
-    // Restaurant.create(restaurant)
-    // )
     .then(() => {
       console.log('restaurants created.')
       process.exit()
