@@ -5,8 +5,14 @@ const db = require('../../config/mongoose')
 // connection success
 db.once('open', () => {
   console.log('MongoDB connection success!')
-  restaurantData.results.forEach(restaurant =>
-    Restaurant.create(restaurant)
-  )
-  console.log('restaurants created.')
+  Restaurant.create(restaurantData.results)
+
+    // restaurantData.results.forEach(restaurant =>
+    // Restaurant.create(restaurant)
+    // )
+    .then(() => {
+      console.log('restaurants created.')
+      process.exit()
+    })
+    .catch(err => console.error(err))
 })
