@@ -38,10 +38,14 @@ router.get('/by/:mean', (req, res) => {
     field = 'category'
     mean = 1
     meanForIndex = 'Category'
-  } else {
+  } else if (mean === 'location') {
     field = "location"
     mean = 1
     meanForIndex = 'Location'
+  } else if (mean === 'rating') {
+    field = 'rating'
+    mean = -1
+    meanForIndex = 'Rating'
   }
   console.log(`Find in ${field} and sort by ${mean}`)
 
@@ -50,7 +54,7 @@ router.get('/by/:mean', (req, res) => {
     $or: [
       { name: { $regex: keyword, $options: "i" } },
       { name_en: { $regex: keyword, $options: "i" } },
-      { category: { $regex: keyword, $options: "i" } }
+      { category: { $regex: keyword, $options: "i" } },
     ]
   })
     .sort({ [field]: mean })
