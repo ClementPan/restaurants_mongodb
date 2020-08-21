@@ -90,12 +90,33 @@
             <input type="text" placeholder="餐廳照片網址" name='image' value="{{restaurant.image}}">
           </li>
 
-          <li class="d-flex justify-content-around align-items-center mt-2">
-            <button type="submit" class=' btn btn-success'>Edit</button>
-            <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST">
-              <button type="submit" class='btn btn-danger delete'>Delete</button>
-            </form>
-            <a href="/"><button class='btn btn-info'>Return</button></a>
+          <li style="list-style: none;">
+            <hr>
+          </li>
+
+          <li class="target d-flex justify-content-center align-items-center mt-2">
+
+            <div class="mr-2">
+              <button type="submit" class=' btn btn-success'>
+                <i class="far fa-save"></i>
+              </button>
+            </div>
+
+            <div class="mr-2">
+              <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST">
+
+                <button type="submit" class='btn btn-danger delete' style="height: 100%;">
+                  <i class="far fa-trash-alt delete"></i>
+                </button>
+
+              </form>
+            </div>
+            <div>
+              <a href="/" class='btn btn-info'>
+                <i class="fas fa-sign-out-alt"></i>
+              </a>
+            </div>
+
           </li>
 
         </ul>
