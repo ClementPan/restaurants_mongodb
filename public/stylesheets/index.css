@@ -7,7 +7,7 @@ header {
 }
 
 .navbar .navbar-brand:hover {
-  color: #226089;
+  color: rgba(255, 255, 255,.5);
 }
 
 .search-bar, h4 {
@@ -26,24 +26,27 @@ header {
 
 .card {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  height: 330px;
+  /* height: 330px; */
 }
 
 .card a {
   text-decoration: none;
 }
 
-.card:hover {
-  background: #fad3ff ;
+.card img {
+  transform: scale(1);
+  opacity: .7;
+  transition: .5s;
 }
 
 .card:hover img {
-  opacity: .5;
+  transform: scale(1.1);
+  opacity:1;
 }
 
-/* .card img{ */
 .card-img-top, .card-img{
   height: 180px;
+  overflow: hidden;
 }
 
 .sub-img {
@@ -56,13 +59,33 @@ header {
   white-space:nowrap;
 }
 
-#cardFootButton a {
-  font-weight: 700;
+.card-body {
+  padding: 1em;
 }
 
-.restaurant-category {
-  color: #666666;
-  font-size: 0.8rem;
+.card-body> div {
+  display: flex;
+  align-items: center;
+}
+
+.card-body> div> *{
+  width: 50%;
+  text-align: center;
+}
+
+
+.card-body h6 {
+  margin-bottom: .5em;
+  text-align: center;
+  background-color: #ddd;
+}
+
+.card-body div .restaurant-category {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .restaurant-show-title {
@@ -72,6 +95,63 @@ header {
   text-align: center;
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+#cardFootButton {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  padding: 0.3em;
+}
+
+#cardFootButton::before {
+  content: '';
+  border-top: 1px solid #ccc;
+  width: 90%;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+}
+
+
+#cardFootButton> * {
+  width: 33%;
+  text-align: center;
+}
+
+#cardFootButton *{
+  color:#0089A7;
+}
+
+#cardFootButton div:first-child {
+  position: relative;
+}
+
+#cardFootButton div:first-child::after {
+  content: '資訊';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+#cardFootButton a:first-child {
+  width: 0;
+}
+
+#cardFootButton i {
+  margin: 0;
+  text-align: center;
+}
+
+#cardFootButton button {
+  border: none;
+  color: #0089A7;
+  background-color: transparent;
 }
 
 .navbar div {
